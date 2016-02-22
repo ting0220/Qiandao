@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/id_read"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/drawer_read"
+        android:drawablePadding="@dimen/dp_10"
+        android:gravity="center"
+        android:padding="@dimen/dp_10"
+        android:text="@string/focus"
+        android:textSize="@dimen/sp_14"/>
+
+    <TextView
+        android:id="@+id/id_report"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/drawer_report"
+        android:drawablePadding="@dimen/dp_10"
+        android:gravity="center"
+        android:padding="@dimen/dp_10"
+        android:text="@string/focus"
+        android:textSize="@dimen/sp_14"/>
+
+    <ImageView
+        android:id="@+id/id_market"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@drawable/test"
+        android:gravity="center"
+        android:padding="@dimen/dp_15"
+        android:scaleType="centerInside"
+        android:src="@drawable/drawer_market"
+        />
+
+    <TextView
+        android:id="@+id/id_activity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/drawer_activity"
+        android:drawablePadding="@dimen/dp_10"
+        android:gravity="center"
+        android:padding="@dimen/dp_10"
+        android:text="@string/focus"
+        android:textSize="@dimen/sp_14"/>
+
+    <TextView
+        android:id="@+id/id_inform"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:drawableTop="@drawable/drawer_inform"
+        android:drawablePadding="@dimen/dp_10"
+        android:gravity="center"
+        android:padding="@dimen/dp_10"
+        android:text="@string/focus"
+        android:textSize="@dimen/sp_14"/>
+
+
+</LinearLayout>

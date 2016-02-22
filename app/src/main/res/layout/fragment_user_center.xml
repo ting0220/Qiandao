@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white_day"
+    android:fitsSystemWindows="true"
+    >
+
+
+    <!--<android.support.design.widget.AppBarLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+
+    <!--android:fitsSystemWindows="true">-->
+
+    <!--<android.support.design.widget.CollapsingToolbarLayout-->
+    <!--android:id="@+id/id_user_ctl"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:fitsSystemWindows="true"-->
+    <!--app:contentScrim="?attr/colorPrimary"-->
+    <!--app:layout_scrollFlags="scroll|enterAlways|snap">-->
+
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/id_header"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--app:layout_scrollFlags="scroll|enterAlways">-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--android:padding="@dimen/dp_20"-->
+    <!--android:src="@drawable/drawer_activity"/>-->
+
+    <!--<TextView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:text="@string/app_name"-->
+    <!--android:textSize="@dimen/sp_20"/>-->
+
+    <!--<ImageView-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--android:padding="@dimen/dp_20"-->
+    <!--android:src="@drawable/drawer_inform"/>-->
+    <!--</RelativeLayout>-->
+    <!--</android.support.design.widget.CollapsingToolbarLayout>-->
+    <!--</android.support.design.widget.AppBarLayout>-->
+
+    <!--<android.support.v7.widget.RecyclerView-->
+    <!--android:id="@+id/id_user_rv"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--app:layout_behavior="@string/appbar_scrolling_view_behavior"/>-->
+    <com.jude.easyrecyclerview.EasyRecyclerView
+        android:id="@+id/id_user_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_empty="@layout/view_empty"
+        app:layout_progress="@layout/view_progress"/>
+
+    <RelativeLayout
+        android:id="@+id/id_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        app:layout_behavior="com.example.zhaoting.test3.module.activity.FooterBehavior"
+        android:background="@color/orange_day"
+        >
+
+        <ImageView
+            android:id="@+id/id_iv_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/dp_20"
+            android:src="@drawable/drawer_inform"/>
+
+        <ImageView
+            android:id="@+id/id_iv_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/id_iv_info"
+            android:padding="@dimen/dp_20"
+            android:src="@drawable/drawer_activity"/>
+
+        <ImageView
+            android:id="@+id/id_iv_market"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/id_iv_activity"
+            android:padding="@dimen/dp_20"
+            android:src="@drawable/drawer_market"/>
+
+        <ImageView
+            android:id="@+id/id_iv_read"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/id_iv_market"
+            android:padding="@dimen/dp_20"
+            android:src="@drawable/drawer_read"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:padding="@dimen/dp_20"
+            android:src="@drawable/drawer_report"/>
+    </RelativeLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,23 @@
+<resources>
+
+    <!--Base application theme.-->
+    <style name="AppTheme.Base.Light" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/orange_day</item>
+        <item name="colorPrimaryDark">@color/black_day</item>
+        <item name="colorAccent">@color/white_day</item>
+        <item name="backGround">@color/white_day</item>
+
+    </style>
+    <style name="AppTheme.Base.Dark" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/orange_night</item>
+        <item name="colorPrimaryDark">@color/black_night</item>
+        <item name="colorAccent">@color/white_night</item>
+        <item name="backGround">@color/white_night</item>
+
+    </style>
+
+    <style name="AppTheme.Day" parent="AppTheme.Base.Light"></style>
+    <style name="AppTheme.Night" parent="AppTheme.Base.Dark"></style>
+
+</resources>

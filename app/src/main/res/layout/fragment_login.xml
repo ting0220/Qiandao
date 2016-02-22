@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/white_day"
+              android:gravity="center_vertical"
+              android:orientation="vertical"
+              android:paddingLeft="@dimen/dp_20"
+              android:paddingRight="@dimen/dp_20"
+              android:tag="skin:white:background">
+
+    <EditText
+        android:id="@+id/id_et_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/account"
+        android:tag="skin:black:textColor|skin:black:textColorHint"
+        android:textColor="@color/black_day"
+        android:textColorHint="@color/black_day"
+        android:textSize="@dimen/sp_16"/>
+
+    <EditText
+        android:id="@+id/id_et_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:hint="@string/password"
+        android:password="true"
+        android:tag="skin:black:textColor|skin:black:textColorHint"
+        android:textColor="@color/black_day"
+        android:textColorHint="@color/black_day"
+        android:textSize="@dimen/sp_16"/>
+
+    <TextView
+        android:id="@+id/id_tv_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:background="@drawable/bg_activity_main"
+        android:gravity="center"
+        android:padding="@dimen/dp_20"
+        android:tag="skin:black:textColor"
+        android:text="@string/login"
+        android:textColor="@color/black_day"/>
+
+    <TextView
+        android:id="@+id/id_tv_change_theme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:background="@drawable/bg_activity_main"
+        android:gravity="center"
+        android:padding="@dimen/dp_20"
+        android:tag="skin:black:textColor"
+        android:text="@string/change_theme"
+        android:textColor="@color/black_day"/>
+
+</LinearLayout>

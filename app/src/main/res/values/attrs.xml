@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- View-->
+    <attr name="backGround" format="reference|color"></attr>
+    <!-- TextView-->
+    <attr name="textColor" format="reference|color"></attr>
+    <attr name="drawableLeft" format="reference"></attr>
+    <attr name="drawableTop" format="reference"></attr>
+    <attr name="drawableRight" format="reference"></attr>
+    <attr name="drawableBottom" format="reference"></attr>
+    <!-- ImageView-->
+    <attr name="src" format="reference"></attr>
+
+
+    <!--底部的快速返回-->
+    <declare-styleable name="Footer">
+        <attr name="target" format="reference"/>
+    </declare-styleable>
+
+</resources>

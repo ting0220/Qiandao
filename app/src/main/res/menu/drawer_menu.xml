@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <item
+            android:id="@+id/drawer_read"
+            android:checkable="true"
+            android:checked="true"
+            android:icon="@drawable/drawer_read"
+            android:title="@string/drawer_read" />
+        <item
+            android:id="@+id/drawer_activity"
+            android:checkable="true"
+            android:icon="@drawable/drawer_activity"
+            android:title="@string/drawer_activity" />
+        <item
+            android:id="@+id/drawer_market"
+            android:checkable="true"
+            android:icon="@drawable/drawer_market"
+            android:title="@string/drawer_market" />
+        <item
+            android:id="@+id/drawer_author"
+            android:checkable="true"
+            android:icon="@drawable/drawer_rsa_author"
+            android:title="@string/drawer_author" />
+        <item
+            android:id="@+id/drawer_report"
+            android:checkable="true"
+            android:icon="@drawable/drawer_report"
+            android:title="@string/drawer_report" />
+        <item
+            android:id="@+id/drawer_info"
+            android:checkable="true"
+            android:icon="@drawable/drawer_inform"
+            android:title="@string/drawer_info" />
+    </group>
+    <item android:title="Sub items">
+        <menu>
+            <item
+                android:id="@+id/sub_item1"
+                android:checkable="true"
+                android:icon="@drawable/drawer_inform"
+                android:title="item1" />
+            <item
+                android:id="@+id/sub_item2"
+                android:checkable="true"
+                android:icon="@drawable/drawer_activity"
+                android:title="item2" />
+
+        </menu>
+    </item>
+</menu>
