@@ -7,6 +7,7 @@ import android.widget.TextView;
 import com.example.zhaoting.qiandao.R;
 import com.example.zhaoting.qiandao.app.BaseFragment;
 import com.example.zhaoting.qiandao.module.author.AuthorFragment;
+import com.example.zhaoting.qiandao.utils.Utils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -61,13 +62,7 @@ public class ActivityMainFragment extends BaseFragment implements View.OnClickLi
             }
             break;
             case R.id.id_tv_management: {
-//                deleteFile(new File(Environment.getExternalStorageDirectory().getAbsolutePath()));
-//                UserCenterFragment userCenterFragment= (UserCenterFragment) ((MainActivity)getActivity()).obtainFragment(UserCenterFragment.class);
-//                ((MainActivity)getActivity()).replaceFragment(userCenterFragment);
-//                TestFragment testFragment= (TestFragment) ((MainActivity)getActivity()).obtainFragment(TestFragment.class);
-//                ((MainActivity)getActivity()).replaceFragment(testFragment);
-
-
+                Utils.ToastShort("5678");
             }
             break;
         }
