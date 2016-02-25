@@ -1,0 +1,236 @@
+package com.example.zhaoting.qiandao.widget;
+
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.util.AttributeSet;
+import android.util.TypedValue;
+import android.view.View;
+
+import com.example.zhaoting.qiandao.R;
+import com.example.zhaoting.qiandao.entity.novel.NovelInfo;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.concurrent.CopyOnWriteArrayList;
+
+/**
+ * Created by zhaoting on 16/2/23.
+ */
+public class SmallTagImage extends View {
+    //图片的Bitmap
+    private Bitmap imageBitmap;
+    //蒙板的颜色
+    private int imageMengColor;
+    //title文字
+    private String titleText;
+    //title文字大小
+    private int titleTextSize;
+    //title文字颜色
+    private int titleTextColor;
+    //横线的颜色
+    private int lineBackGround;
+    //横线距离左侧的距离
+    private int lineMarginLeft;
+    //横线距离右侧的距离
+    private int lineMarginRight;
+    //sub文字
+    private String subText;
+    //sub文字大小
+    private int subTextSize;
+    //sub文字颜色
+    private int subTextColor;
+
+    //控件用的Paint
+    private Paint paint;
+    //用来界定控件中不同部分的绘制区域
+    private Rect rect;
+    //宽度和高度的最小值
+    private static final int MIN_SIZE = 12;
+    //用于获取字体的高度和宽度
+    private Rect mBounds;
+
+    public SmallTagImage(Context context) {
+        this(context, null);
+    }
+
+    public SmallTagImage(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+
+    public SmallTagImage(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.SmallTagImage, defStyleAttr, 0);
+        int n = a.getIndexCount();
+        for (int i = 0; i < n; i++) {
+            int attr = a.getIndex(i);
+            switch (attr) {
+                case R.styleable.SmallTagImage_imageSrc:
+                    imageBitmap = BitmapFactory.decodeResource(getResources(), a.getResourceId(attr, 0));
+                    break;
+                case R.styleable.SmallTagImage_imageMengColor:
+                    imageMengColor = a.getColor(attr, Color.TRANSPARENT);//默认透明背景
+                    break;
+                case R.styleable.SmallTagImage_titleText:
+                    titleText = a.getString(attr);
+                    break;
+                case R.styleable.SmallTagImage_titleTextSize:
+                    titleTextSize = a.getDimensionPixelSize(
+                            attr, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 16, getResources().getDisplayMetrics()));//默认标题字体大小是16sp
+                    break;
+                case R.styleable.SmallTagImage_titleTextColorS:
+                    titleTextColor = a.getColor(attr, 0x00000000);//默认黑色字体
+                    break;
+                case R.styleable.SmallTagImage_subText:
+                    subText = a.getString(attr);
+                    break;
+                case R.styleable.SmallTagImage_subTextColor:
+                    subTextColor = a.getColor(attr, 0x00000000);//默认黑色字体
+                    break;
+                case R.styleable.SmallTagImage_subTextSize:
+                    subTextSize = a.getDimensionPixelSize(attr, (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 14, getResources().getDisplayMetrics()));//默认sub字体大小是14sp
+                    break;
+                case R.styleable.SmallTagImage_lineBackGround:
+                    lineBackGround = a.getColor(attr, Color.TRANSPARENT);//默认透明背景
+                    break;
+                case R.styleable.SmallTagImage_lineMarginLeft:
+                    lineMarginLeft = a.getDimensionPixelSize(attr, 0);
+                    break;
+                case R.styleable.SmallTagImage_lineMarginRight:
+                    lineMarginRight = a.getDimensionPixelSize(attr, 0);
+                    break;
+            }
+        }
+        a.recycle();
+
+        paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+        rect = new Rect();
+        mBounds = new Rect();
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+
+        rect.left = getPaddingLeft();
+        rect.top = getPaddingTop();
+        rect.right = getWidth() - getPaddingRight();
+        rect.bottom = getHeight() - getPaddingBottom();
+        if (imageBitmap != null) {
+            canvas.drawBitmap(imageBitmap, null, rect, paint);
+        }
+        paint.setColor(imageMengColor);
+        canvas.drawRect(rect, paint);
+
+        int startX = rect.left + lineMarginLeft;
+        int stopX = rect.right - lineMarginRight;
+        paint.setColor(lineBackGround);
+        canvas.drawLine(startX, getHeight() / 2, stopX, getHeight() / 2, paint);
+
+        if (titleText != null) {
+            paint.setTextSize(titleTextSize);
+            paint.setColor(titleTextColor);
+
+            paint.getTextBounds(titleText, 0, titleText.length(), mBounds);
+
+            float textWidth = mBounds.width();
+            float textHeight = mBounds.height();
+            float x = getWidth() / 2 - textWidth / 2;
+            float y = getHeight() / 2 - textHeight + 15;
+            canvas.drawText(titleText, x, y, paint);
+        }
+        if (subText != null) {
+            paint.setTextSize(subTextSize);
+            paint.setColor(subTextColor);
+
+            paint.getTextBounds(subText, 0, subText.length(), mBounds);
+
+            float textWidth = mBounds.width();
+            float textHeight = mBounds.height();
+            float x = getWidth() / 2 - textWidth / 2;
+            float y = getHeight() / 2 + textHeight + 8;
+            canvas.drawText(subText, x, y, paint);
+        }
+
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
+
+        int width;
+        int height;
+
+        if (widthMode == MeasureSpec.EXACTLY) {
+            width = widthSize;
+        } else {
+            int desired = getPaddingLeft() + getPaddingRight();
+            desired += (imageBitmap != null) ? imageBitmap.getWidth() : 0;
+            width = Math.max(MIN_SIZE, desired);
+            if (widthMode == MeasureSpec.AT_MOST) {
+                width = Math.min(desired, widthSize);
+            }
+        }
+
+        if (heightMode == MeasureSpec.EXACTLY) {
+            height = heightSize;
+        } else {
+            int desired = getPaddingTop() + getPaddingBottom();
+            desired += (imageBitmap != null) ? imageBitmap.getHeight() : 0;
+            height = Math.max(MIN_SIZE, desired);
+            if (heightMode == MeasureSpec.AT_MOST) {
+                height = Math.min(desired, heightSize);
+            }
+        }
+        setMeasuredDimension(width, height);
+    }
+
+    public void setData(NovelInfo info) {
+        titleText = info.getTitle();
+        subText = String.valueOf(info.getGuid());
+        try {
+            //将URL地址转换为bitmap
+//            URL url = new URL(info.getBanner());
+//            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+//            conn.setConnectTimeout(5000);
+//            InputStream is = conn.getInputStream();
+//            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//            byte[] buffer = new byte[1024];
+//            int len;
+//            while ((len = is.read(buffer)) != -1) {
+//                baos.write(buffer, 0, len);
+//            }
+//            byte[] result = baos.toByteArray();
+//            imageBitmap = BitmapFactory.decodeByteArray(result, 0, result.length);
+
+//            byte[] bitmapArray;
+//            bitmapArray = Base64.decode(info.getBanner(), Base64.DEFAULT);
+//            imageBitmap = BitmapFactory.decodeByteArray(bitmapArray, 0, bitmapArray.length);
+
+            InputStream in=null;
+            BufferedOutputStream out=null;
+            try {
+                in=new BufferedInputStream(new URL(info.getBanner()).openStream(),2*1024);
+                final ByteArrayOutputStream dataStream=new ByteArrayOutputStream();
+                out=new BufferedOutputStream(dataStream,2*1024);
+
+            }
+
+//            requestLayout();
+//            invalidate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+}
