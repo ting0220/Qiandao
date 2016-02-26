@@ -5,6 +5,8 @@ import android.app.Application;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.DisplayMetrics;
@@ -13,6 +15,11 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
 
 import com.example.zhaoting.qiandao.utils.share.SharedPManager;
+
+import java.io.BufferedInputStream;
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 
 
 /**
@@ -132,5 +139,22 @@ public class Utils {
             SharedPManager.setDeviceId(deviceId);
         }
         return deviceId;
+    }
+
+    /**
+     * url转换成bitmap
+     */
+    public static Bitmap urlToBitmap(String s) {
+        try {
+            URL url = new URL(s);
+            URLConnection conn =url.openConnection();
+            conn.connect();
+            InputStream is = conn.getInputStream();
+            BufferedInputStream baos = new BufferedInputStream(is);
+            return BitmapFactory.decodeStream(baos);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

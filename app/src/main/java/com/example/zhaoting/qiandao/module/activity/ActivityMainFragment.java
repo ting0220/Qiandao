@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.example.zhaoting.qiandao.R;
 import com.example.zhaoting.qiandao.app.BaseFragment;
 import com.example.zhaoting.qiandao.module.author.AuthorFragment;
-import com.example.zhaoting.qiandao.utils.Utils;
+import com.example.zhaoting.qiandao.module.tag.TagGridFragment;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -62,7 +62,7 @@ public class ActivityMainFragment extends BaseFragment implements View.OnClickLi
             }
             break;
             case R.id.id_tv_management: {
-                Utils.ToastShort("5678");
+                replaceFragment(TagGridFragment.class);
             }
             break;
         }

@@ -26,4 +26,6 @@ public class Constants {
     public static final String getOutSideList(){
         return BASE_URL+"/users/list/verified";
     }
+    //获取小说列表
+    public static final String getNovelList(){return BASE_URL+"/novels/list";}
 }

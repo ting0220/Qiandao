@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <com.example.zhaoting.qiandao.widget.SmallTagImage
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:imageMengColor="@color/night_mask_day"
+        app:imageSrc="@drawable/small"
+        app:lineBackGround="@color/white_day"
+        app:lineMarginLeft="@dimen/dp_20"
+        app:lineMarginRight="@dimen/dp_20"
+        app:titleText="@string/app_name"
+        app:titleTextColorS="@color/orange_day"
+        app:titleTextSize="@dimen/sp_20"
+        app:subText="@string/app_name"
+        app:subTextColor="@color/orange_day"
+        app:subTextSize="@dimen/sp_16"
+        />
+
+    <com.example.zhaoting.qiandao.widget.SmallTagImage
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:imageMengColor="@color/night_mask_day"
+        app:imageSrc="@drawable/small"
+        app:lineBackGround="@color/white_day"
+        app:lineMarginLeft="@dimen/dp_20"
+        app:lineMarginRight="@dimen/dp_20"
+        app:titleText="@string/app_name"
+        app:titleTextColorS="@color/orange_day"
+        app:titleTextSize="@dimen/sp_20"
+        app:subText="@string/app_name"
+        app:subTextColor="@color/orange_day"
+        app:subTextSize="@dimen/sp_16"
+        android:layout_marginTop="@dimen/dp_20"
+        />
+
+</LinearLayout>

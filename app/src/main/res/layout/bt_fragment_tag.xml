@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <com.example.zhaoting.qiandao.widget.SmallTagImage
+        android:id="@+id/id_small_tag_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:lineBackGround="@color/gray_day"
+        app:lineMarginLeft="@dimen/dp_20"
+        app:lineMarginRight="@dimen/dp_20"
+        app:subTextSize="@dimen/sp_16"
+        app:titleTextSize="@dimen/sp_20"/>
+
+</LinearLayout>

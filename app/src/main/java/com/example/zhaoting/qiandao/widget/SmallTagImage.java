@@ -15,13 +15,6 @@ import android.view.View;
 import com.example.zhaoting.qiandao.R;
 import com.example.zhaoting.qiandao.entity.novel.NovelInfo;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.concurrent.CopyOnWriteArrayList;
-
 /**
  * Created by zhaoting on 16/2/23.
  */
@@ -195,42 +188,13 @@ public class SmallTagImage extends View {
         setMeasuredDimension(width, height);
     }
 
-    public void setData(NovelInfo info) {
+    public void setData(final NovelInfo info) {
         titleText = info.getTitle();
         subText = String.valueOf(info.getGuid());
-        try {
-            //将URL地址转换为bitmap
-//            URL url = new URL(info.getBanner());
-//            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-//            conn.setConnectTimeout(5000);
-//            InputStream is = conn.getInputStream();
-//            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-//            byte[] buffer = new byte[1024];
-//            int len;
-//            while ((len = is.read(buffer)) != -1) {
-//                baos.write(buffer, 0, len);
-//            }
-//            byte[] result = baos.toByteArray();
-//            imageBitmap = BitmapFactory.decodeByteArray(result, 0, result.length);
-
-//            byte[] bitmapArray;
-//            bitmapArray = Base64.decode(info.getBanner(), Base64.DEFAULT);
-//            imageBitmap = BitmapFactory.decodeByteArray(bitmapArray, 0, bitmapArray.length);
-
-            InputStream in=null;
-            BufferedOutputStream out=null;
-            try {
-                in=new BufferedInputStream(new URL(info.getBanner()).openStream(),2*1024);
-                final ByteArrayOutputStream dataStream=new ByteArrayOutputStream();
-                out=new BufferedOutputStream(dataStream,2*1024);
-
-            }
-
-//            requestLayout();
-//            invalidate();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        imageBitmap=info.getBitmap();
     }
 
+
 }
+
+
