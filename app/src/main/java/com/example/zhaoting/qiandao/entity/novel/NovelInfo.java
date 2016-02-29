@@ -2,8 +2,6 @@ package com.example.zhaoting.qiandao.entity.novel;
 
 import android.graphics.Bitmap;
 
-import com.example.zhaoting.qiandao.utils.Utils;
-
 import org.json.JSONObject;
 
 /**
@@ -25,11 +23,11 @@ public class NovelInfo {
         if (object.has("banner")) {
             this.banner = object.optString("banner", "");
         }
-        if (object.has("banner")) {
-            this.banner = object.optString("banner", "");
-
-            bitmap = Utils.urlToBitmap(banner);
-        }
+//        if (object.has("banner")) {
+//            this.banner = object.optString("banner", "");
+//
+//            bitmap = Utils.urlToBitmap(banner);
+//        }
     }
 
     public String getTitle() {

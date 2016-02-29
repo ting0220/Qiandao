@@ -36,14 +36,15 @@ public class TagGridFragment extends BaseFragment implements OnListener {
 
     @Override
     protected void initDatas() {
+        int width = (Utils.getScreenWidth() - 100) / 2;
+        String tag_image_size = "[\"" + width + "_" + width + "\"]";
         mNovelModel = new NovelModelImpl();
-        mNovelModel.getNovel(this, 10, 0, "banner", "", "", "");
+        mNovelModel.getNovel(this, 10, 0, tag_image_size, "banner", "", "", "");
     }
 
     @Override
     public void onSuccess(String s) {
         we(s);
-        Utils.ToastShort("sagbvdsane");
     }
 
     private void we(String s) {
@@ -55,14 +56,12 @@ public class TagGridFragment extends BaseFragment implements OnListener {
             if (total == 0 || TextUtils.isEmpty(array.toString())) {
 
             } else {
-                NovelInfo mNovelInfo = new NovelInfo(array.getJSONObject(0));
+                final NovelInfo mNovelInfo = new NovelInfo(array.getJSONObject(0));
                 mSmallTagImage.setData(mNovelInfo);
             }
-            Utils.ToastShort("sagbvdsane");
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Utils.ToastShort("sagbvdsane");
     }
 
     @Override

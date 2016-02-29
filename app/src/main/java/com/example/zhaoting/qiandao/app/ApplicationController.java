@@ -24,4 +24,5 @@ public class ApplicationController extends Application {
         SkinManager.getInstance().init(this);
     }
 
+
 }

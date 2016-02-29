@@ -26,7 +26,7 @@ public class NovelModelImpl implements NovelModel {
      * @param sort
      */
     @Override
-    public void getNovel(final OnListener listener, int limit, int offset, String fields, String ending, String orderby, String sort) {
+    public void getNovel(final OnListener listener, int limit, int offset,String banner_size, String fields, String ending, String orderby, String sort) {
         Map<String, String> map = new HashMap<>();
         map.put("limit", String.valueOf(limit));
         map.put("offset", String.valueOf(offset));
@@ -34,6 +34,7 @@ public class NovelModelImpl implements NovelModel {
         map.put("ending", ending);
         map.put("orderby", orderby);
         map.put("sort", sort);
+        map.put("banner_size",banner_size);
 
         Volley.get(Constants.getNovelList(), map, new Response.Listener<String>() {
             @Override

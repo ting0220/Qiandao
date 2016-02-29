@@ -12,7 +12,10 @@
         app:lineBackGround="@color/gray_day"
         app:lineMarginLeft="@dimen/dp_20"
         app:lineMarginRight="@dimen/dp_20"
+        app:subTextColor="@color/black_day"
         app:subTextSize="@dimen/sp_16"
+        app:imageMengColor="@color/night_mask_day"
+        app:titleTextColorS="@color/black_day"
         app:titleTextSize="@dimen/sp_20"/>
 
 </LinearLayout>

@@ -8,12 +8,17 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.Handler;
+import android.os.Message;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 
 import com.example.zhaoting.qiandao.R;
 import com.example.zhaoting.qiandao.entity.novel.NovelInfo;
+import com.example.zhaoting.qiandao.utils.Utils;
 
 /**
  * Created by zhaoting on 16/2/23.
@@ -51,6 +56,8 @@ public class SmallTagImage extends View {
     //用于获取字体的高度和宽度
     private Rect mBounds;
 
+    private Context mContext;
+
     public SmallTagImage(Context context) {
         this(context, null);
     }
@@ -61,6 +68,7 @@ public class SmallTagImage extends View {
 
     public SmallTagImage(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        mContext = context;
         TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.SmallTagImage, defStyleAttr, 0);
         int n = a.getIndexCount();
         for (int i = 0; i < n; i++) {
@@ -189,12 +197,123 @@ public class SmallTagImage extends View {
     }
 
     public void setData(final NovelInfo info) {
-        titleText = info.getTitle();
-        subText = String.valueOf(info.getGuid());
-        imageBitmap=info.getBitmap();
+        final Handler handler = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                super.handleMessage(msg);
+                imageBitmap = (Bitmap) msg.obj;
+                titleText = info.getTitle();
+                subText = String.valueOf(info.getGuid());
+                requestLayout();
+                invalidate();
+            }
+        };
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Bitmap bitmap = Utils.urlToBitmap(info.getBanner());
+                Message message = new Message();
+                message.obj = bitmap;
+                handler.sendMessage(message);
+            }
+        }).start();
+
     }
 
+    public void setImageMengColor(int color) {
+        imageMengColor = color;
+        requestLayout();
+        invalidate();
+    }
 
+    public void setImageBitmap(Bitmap bitmap) {
+        imageBitmap = bitmap;
+        requestLayout();
+        invalidate();
+    }
+
+    public void setImageUrl(final String url) {
+        final Handler handler = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                super.handleMessage(msg);
+                imageBitmap = (Bitmap) msg.obj;
+                setImageBitmap(imageBitmap);
+            }
+        };
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Bitmap bitmap = Utils.urlToBitmap(url);
+                Message message = new Message();
+                message.obj = bitmap;
+                handler.sendMessage(message);
+            }
+        }).start();
+    }
+
+    public void setImageDrawable(int drawable) {
+        Drawable d = mContext.getResources().getDrawable(drawable);
+        BitmapDrawable bd = (BitmapDrawable) d;
+        Bitmap bitmap = bd.getBitmap();
+        setImageBitmap(bitmap);
+    }
+
+    public void setTitleText(String text) {
+        titleText = text;
+        requestLayout();
+        invalidate();
+    }
+
+    public void setTitleTextColor(int textColor) {
+        titleTextColor = textColor;
+        requestLayout();
+        invalidate();
+    }
+
+    public void setTitleTextSize(int textSize) {
+        titleTextSize = textSize;
+        requestLayout();
+        invalidate();
+    }
+
+    public void setSubText(String text) {
+        subText = text;
+        requestLayout();
+        invalidate();
+    }
+
+    public void setSubTextColor(int subColor) {
+        subTextColor = subColor;
+        requestLayout();
+        invalidate();
+    }
+
+    public void setSubTextSize(int subSize) {
+        subTextSize = subSize;
+        requestLayout();
+        invalidate();
+    }
+
+    public void setLineBackground(int background) {
+        lineBackGround = background;
+        requestLayout();
+        invalidate();
+    }
+
+    public void setLineMarginLeft(int marginLeft) {
+        lineMarginLeft = marginLeft;
+        requestLayout();
+        invalidate();
+    }
+
+    public void setLineMarginRight(int marginRight) {
+        lineMarginRight = marginRight;
+        requestLayout();
+        invalidate();
+    }
 }
 
 
