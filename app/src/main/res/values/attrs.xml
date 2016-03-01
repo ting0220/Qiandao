@@ -23,7 +23,6 @@
     <attr name="imageSrc" format="reference"/>
 
     <attr name="imageMengColor" format="color"/>
-
     <attr name="titleText" format="string"/>
     <attr name="titleTextSize" format="dimension"/>
     <attr name="titleTextColorS" format="color"/>
@@ -31,11 +30,9 @@
     <attr name="titlePaddingTop" format="dimension"/>
     <attr name="titlePaddingRight" format="dimension"/>
     <attr name="titlePaddingBottom" format="dimension"/>
-
     <attr name="lineBackGround" format="color"/>
     <attr name="lineMarginLeft" format="dimension"/>
     <attr name="lineMarginRight" format="dimension"/>
-
     <attr name="subText" format="string"/>
     <attr name="subTextSize" format="dimension"/>
     <attr name="subTextColor" format="color"/>
@@ -43,7 +40,6 @@
     <attr name="subPaddingTop" format="dimension"/>
     <attr name="subPaddingRight" format="dimension"/>
     <attr name="subPaddingBottom" format="dimension"/>
-
     <declare-styleable name="SmallTagImage">
         <attr name="imageSrc"/>
         <attr name="imageMengColor"/>

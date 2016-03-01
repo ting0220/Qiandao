@@ -19,7 +19,6 @@ import org.json.JSONObject;
  * Created by zhaoting on 16/2/25.
  */
 public class TagGridFragment extends BaseFragment implements OnListener {
-    //    @Bind(R.id.id_small_tag_image)
     SmallTagImage mSmallTagImage;
 
     private NovelModel mNovelModel;
@@ -72,6 +71,5 @@ public class TagGridFragment extends BaseFragment implements OnListener {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-//        ButterKnife.unbind(this);
     }
 }

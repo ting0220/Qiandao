@@ -24,6 +24,7 @@ public class NovelModelImpl implements NovelModel {
      * @param ending
      * @param orderby  可选desc和asc，默认desc
      * @param sort
+     * @param banner_size 需要请求的图片的尺寸
      */
     @Override
     public void getNovel(final OnListener listener, int limit, int offset,String banner_size, String fields, String ending, String orderby, String sort) {

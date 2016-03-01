@@ -8,7 +8,6 @@ import com.android.volley.Cache;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.toolbox.ImageLoader;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Iterator;
@@ -27,8 +26,8 @@ public class Volley {
     private static Context mContext;
     //创建一个全局的请求队列
     private static RequestQueue reqQueue;
-    //图片请求
-    private ImageLoader imageLoader;
+//    //图片请求
+//    private ImageLoader imageLoader;
 
     public static synchronized void init(Application app) {
         mContext = app.getApplicationContext();
@@ -40,14 +39,6 @@ public class Volley {
             reqQueue = com.android.volley.toolbox.Volley.newRequestQueue(mContext);
         }
         return reqQueue;
-    }
-
-    public ImageLoader getImageLoader() {
-        getRequestQueue();
-        if (imageLoader == null) {
-            imageLoader = new ImageLoader(reqQueue, new LruBitmapCathe());
-        }
-        return imageLoader;
     }
 
     /**
